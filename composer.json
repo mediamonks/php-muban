@@ -1,0 +1,23 @@
+{
+  "name": "mediamonks/php-muban",
+  "description": "Renders the correct component based on the request payload",
+  "type": "library",
+  "require": {
+    "php": ">=8.1",
+    "symfony/validator": "^6.1",
+    "symfony/event-dispatcher": "^6.1",
+    "symfony/http-foundation": "^6.1",
+    "twig/twig": "^3.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mediamonks\\Muban\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Edwin Luijten",
+      "email": "edwin@mediamonks.com"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<picture
+        data-component="{{ component.component }}"
+        id="{{ component.id }}"
+        class="{{ component.className|join(' ') }}">
+    {% for source in component.sources %}
+        <source {{ component.enableLazyLoading ? 'data-srcset' : 'srcset' }}="{{ source.srcset }}" media="{{ source.media }}" />
+    {% endfor %}
+    <img {{ component.enableLazyLoading ? 'data-src' : 'src' }}="{{ component.src }}" alt="{{ component.alt }}"/>
+</picture>

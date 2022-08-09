@@ -1,0 +1,26 @@
+{% set tag = component.href ? 'a' : 'button' %}
+
+<{{ tag }}
+data-component="{{ component.component }}"
+data-label="{{ component.label }}"
+{% if component.href %}href="{{ component.href }}" {% endif %}
+{{ component.href ? '' : 'type="button"' }}
+{% if component.id %}id="{{ component.id }}"{% endif %}
+{% if component.disabled %}disabled="disabled"{% endif %}
+
+title="{{ component.title ?? component.label }}"
+{% if component.href %}target="{{ component.target }}"{% endif %}
+{% if component.href %}rel="noopener"{% endif %}
+class="{{ component.className|join(' ') }}"
+aria-label="{{ component.ariaLabel }}"
+aria-controls="{{ component.ariaControls }}"
+>
+{% if component.textComponent %}
+    {% include '@MediaMonksMuban/component/'~component.textComponent.component~'.html.twig' with { component: component.textComponent } %}
+{% endif %}
+
+{% if component.iconComponent %}
+    {% include '@MediaMonksMuban/component/'~component.iconComponent.component~'.html.twig' with { component: component.iconComponent } %}
+{% endif %}
+
+</{{ tag }}>

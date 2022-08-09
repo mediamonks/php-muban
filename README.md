@@ -62,7 +62,9 @@ Request:
 
 Response:
 ```html
-
+<h1 data-component="cl-a1-heading" aria-label="aria-label" class="heading-1 awesome-header" id="awesome-header">
+    The quick brown fox jumps over the lazy dog.
+</h1>
 ```
 #### CL A2 Icon
 

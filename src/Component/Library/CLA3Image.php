@@ -83,7 +83,7 @@ class CLA3Image extends AbstractComponent
         return $this->objectFit;
     }
 
-    public function getClassName(): ?array
+    public function getClassName(): array
     {
         $className = is_string($this->className) ? [$this->className] : $this->className;
 

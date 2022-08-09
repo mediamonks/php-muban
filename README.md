@@ -1,8 +1,11 @@
 # Muban connector for PHP
 
+An event subscriber that listens for requests to a given endpoint (default: muban/view),   
+and returns the correct component.
 
 ## Requirements
-- php >= 8.1
+- Composer 2
+- PHP >= 8.1
 
 ## Installation
 
@@ -36,8 +39,8 @@ $eventSubscriber = new RequestSubscriber($twig, $components, $validatorBuilder->
 $dispatcher = new EventDispatcher();
 $dispatcher->addSubscriber($eventSubscriber);
 
-// inject the $dispatcher in your http kernel
-
+// Inject the $dispatcher in your http kernel.
+// Requests to muban/view will be captured and handled.
 ```
 
 ## Component Library
@@ -52,24 +55,65 @@ Request:
   "parameters": {
     "as": "h1",
     "copy": "The quick brown fox jumps over the lazy dog.",
-    "ariaLabel": "",
+    "ariaLabel": "a1-heading",
     "style": "heading-1",
-    "className": "",
-    "id": ""
+    "className": "foo",
+    "id": "bar"
   }
 }
 ```
 
 Response:
 ```html
-<h1 data-component="cl-a1-heading" aria-label="aria-label" class="heading-1 awesome-header" id="awesome-header">
+<h1 data-component="cl-a1-heading" class="heading-1 foo" aria-label="a1-heading" id="bar">
     The quick brown fox jumps over the lazy dog.
 </h1>
 ```
 #### CL A2 Icon
-
+Request:  
+```json
+{
+  "component": "cl-a2-icon",
+  "parameters": {
+    "name": "arrow-right",
+    "className": "foo",
+    "id": "bar"
+  }
+}
+```
+Response:  
+```html
+<span data-component="cl-a2-icon" data-name="arrow-right" class="foo" id="bar"/>
+```
 #### CL A3 Image
-
+Request:  
+```json
+{
+    "component": "cl-a3-image",
+    "parameters": {
+        "src": "https://via.placeholder.com/640x480?text=Default+image",
+        "alt": "The quick brown fox jumps over the lazy dog.",
+        "sources": [
+            {
+                "srcset": "https://via.placeholder.com/1280x720?text=Large+image",
+                "media": "(min-width:768px)"
+            }
+        ],
+        "enableLazyLoading": true,
+        "enableTransitionIn": true,
+        "className": "foo",
+        "objectFit": "none",
+        "id": "bar"
+    }
+}
+```
+Response:  
+```html
+<picture data-component="cl-a3-image" id="bar" class="foo fit-none enable-transition-in">
+	<source data-srcset="https://via.placeholder.com/1280x720?text=Large+image" media="(min-width:768px)" />
+	<img data-src="https://via.placeholder.com/640x480?text=Default+image" alt="The quick brown fox jumps over the lazy dog."/>
+</picture>
+```
 #### CL A5 Text
 
 ### Molecules

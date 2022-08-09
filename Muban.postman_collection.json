@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "728b6ca3-061c-4187-8f5b-ee20a732504c",
+		"name": "Muban",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CL A1 Heading",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"component\": \"cl-a1-heading\",\n    \"parameters\": {\n        \"as\": \"h1\",\n        \"copy\": \"The quick brown fox jumps over the lazy dog.\",\n        \"ariaLabel\": \"a1-heading\",\n        \"style\": \"heading-1\",\n        \"className\": \"foo\",\n        \"id\": \"bar\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{route}}",
+					"host": [
+						"{{host}}{{route}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CL A2 Icon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"component\": \"cl-a2-icon\",\n    \"parameters\": {\n        \"name\": \"arrow-right\",\n        \"className\": \"foo\",\n        \"id\": \"bar\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{route}}",
+					"host": [
+						"{{host}}{{route}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CL A3 Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"component\": \"cl-a3-image\",\n    \"parameters\": {\n        \"src\": \"https://via.placeholder.com/640x480?text=Default+image\",\n        \"alt\": \"The quick brown fox jumps over the lazy dog.\",\n        \"sources\": [\n            {\n                \"srcset\": \"https://via.placeholder.com/1280x720?text=Large+image\",\n                \"media\": \"(min-width:768px)\"\n            }\n        ],\n        \"enableLazyLoading\": true,\n        \"enableTransitionIn\": true,\n        \"className\": \"foo\",\n        \"objectFit\": \"none\",\n        \"id\": \"bar\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{route}}",
+					"host": [
+						"{{host}}{{route}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost/",
+			"type": "default"
+		},
+		{
+			"key": "route",
+			"value": "muban/view",
+			"type": "default"
+		}
+	]
+}

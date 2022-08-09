@@ -38,11 +38,14 @@ class CLA1Heading extends AbstractComponent
     public function rules(): Assert\Collection
     {
         return $this->extendBaseRules([
-            'as' => new Assert\NotBlank(),
+            'as' => [
+                new Assert\NotBlank(),
+                new Assert\Choice(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+            ],
             'copy' => new Assert\NotBlank(),
             'style' => new Assert\NotBlank(),
             'ariaLabel' => new Assert\Optional([
-                new Assert\NotBlank(),
+                new Assert\Type(['string']),
             ]),
         ]);
     }

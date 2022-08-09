@@ -31,9 +31,9 @@ abstract class AbstractComponent implements ComponentInterface
     }
 
 
-    public function getClassName(): array|string|null
+    public function getClassName(): array
     {
-        return $this->className;
+        return is_string($this->className) ? [$this->className] : $this->className;
     }
 
     public function getId(): ?string

@@ -89,6 +89,7 @@ class CLM1Button extends AbstractComponent
             ]),
             'size' => new Assert\Optional([
                 new Assert\NotBlank(),
+                new Assert\Choice(['small', 'medium']),
             ]),
             'title' => new Assert\Optional([
                 new Assert\NotBlank(),
@@ -101,6 +102,7 @@ class CLM1Button extends AbstractComponent
             ]),
             'iconAlignment' => new Assert\Optional([
                 new Assert\NotBlank(),
+                new Assert\Choice(['left', 'right']),
             ]),
         ]);
     }
@@ -165,7 +167,7 @@ class CLM1Button extends AbstractComponent
         return $this->textComponent;
     }
 
-    public function getClassName(): ?array
+    public function getClassName(): array
     {
         $className = is_string($this->className) ? [$this->className] : $this->className;
 

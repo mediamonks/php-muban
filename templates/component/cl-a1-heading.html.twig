@@ -1,8 +1,8 @@
 <{{ component.as }}
 data-component="{{ component.component }}"
-aria-label="{{ component.ariaLabel }}"
 class="{{ component.style }} {{ component.className|join(' ') }}"
-{% if component.id %}id="{{ component.id }}"{% endif %}
+{% if component.ariaLabel %} aria-label="{{ component.ariaLabel }}"{% endif %}
+{% if component.id %} id="{{ component.id }}"{% endif %}
 >
 {{ component.copy }}
 </{{ component.as }}>

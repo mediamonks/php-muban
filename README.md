@@ -1,6 +1,6 @@
 # Muban connector for PHP
 
-An event subscriber that listens for requests to a given endpoint (default: muban/view),   
+An event subscriber that listens for requests to a given endpoint (default: `muban/view`),   
 and returns the correct component.
 
 ## Requirements
@@ -44,7 +44,8 @@ $dispatcher->addSubscriber($eventSubscriber);
 ```
 
 ## Component Library
-
+There is a postman collection included in this repo.
+Update the host and route variable if other than `localhost` and `muban/view`.
 ### Atoms
 
 #### CL A1 Heading

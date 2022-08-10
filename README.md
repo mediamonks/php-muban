@@ -47,12 +47,12 @@ $dispatcher->addSubscriber($eventSubscriber);
 
 Generate a component from raw json input:  
 ```bash
-bin/console muban:from-json raw
+bin/console muban:from-json --raw
 ```
 
 Generate a component from a json file:  
 ```bash
-bin/console muban:from-json file ./cl-a1-heading.json
+bin/console muban:from-json --file ./cl-a1-heading.json
 ```
 
 ## Component Library

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace MediaMonks\Muban\Console;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,7 +21,7 @@ class GenerateFromJsonCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output): int
     {
-        if ($input->hasOption('file')) {
+        if ($input->hasOption('file') && $input->getOption('file') !== null) {
             if (!file_exists($input->getOption('file'))) {
                 $output->writeln('File does not exist.');
                 return Command::INVALID;
@@ -65,8 +64,10 @@ class GenerateFromJsonCommand extends Command
 
         $templateContent = str_replace([
             '[classname]',
+            '[component]',
         ], [
             $className,
+            (array_key_exists('as', $parameters) ? $this->generateComponent($componentName, $parameters) : ''),
         ], $template);
 
         $files = [
@@ -154,13 +155,24 @@ class GenerateFromJsonCommand extends Command
             }
 
             $str .= $tab . 'public function get' . ucfirst($property) . '(): ' . gettype($value) . ' {' . PHP_EOL;
-            $str .= ($i === 0 ? str_repeat('    ', 2) :  '') . $tab . $tab . 'return $this->' . $property . ';' . PHP_EOL;
-            $str .= ($i === 0 ? str_repeat('    ', 1) :  '') . $tab . '}' . PHP_EOL;
+            $str .= ($i === 0 ? str_repeat('    ', 2) : '') . $tab . $tab . 'return $this->' . $property . ';' . PHP_EOL;
+            $str .= ($i === 0 ? str_repeat('    ', 1) : '') . $tab . '}' . PHP_EOL;
             $str .= PHP_EOL;
 
             $i++;
         }
 
         return $str;
+    }
+
+    private function generateComponent(string $name, array $properties): string
+    {
+        $component = '';
+
+        if (array_key_exists('as', $properties)) {
+            $component .= '<' . $properties['as'] . ' data-component="' . $name . '"></' . $properties['as'] . '>';
+        }
+
+        return $component;
     }
 }

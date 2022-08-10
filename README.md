@@ -43,6 +43,18 @@ $dispatcher->addSubscriber($eventSubscriber);
 // Requests to muban/view will be captured and handled.
 ```
 
+### Creating new components
+
+Generate a component from raw json input:  
+```bash
+bin/console muban:from-json raw
+```
+
+Generate a component from a json file:  
+```bash
+bin/console muban:from-json file ./cl-a1-heading.json
+```
+
 ## Component Library
 There is a postman collection included in this repo.
 Update the host and route variable if other than `localhost` and `muban/view`.

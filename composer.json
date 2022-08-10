@@ -11,7 +11,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Mediamonks\\Muban\\": "src/"
+      "MediaMonks\\Muban\\": "src/"
     }
   },
   "authors": [
@@ -19,5 +19,8 @@
       "name": "Edwin Luijten",
       "email": "edwin@mediamonks.com"
     }
-  ]
+  ],
+  "require-dev": {
+    "symfony/console": "^6.1"
+  }
 }

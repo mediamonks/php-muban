@@ -132,7 +132,36 @@ Response:
 ### Molecules
 
 #### CL M1 Button
+Request:
+```json
+{
+    "component": "cl-m1-button",
+    "parameters": {
+        "label": "Click me!",
+        "href": "https://github.com/mubanjs",
+        "disabled": false,
+        "target": "_self",
+        "className": "foo",
+        "icon": "arrow-left",
+        "size": "medium",
+        "id": "bar",
+        "title": "foo",
+        "ariaLabel": "bar",
+        "ariaControls": "baz",
+        "iconAlignment": "right"
+    }
+}
+```
+Response:
+```html
+<a data-component="cl-m1-button" data-label="Click me!" href="https://github.com/mubanjs" id="bar" title="foo"
+	target="_self" rel="noopener" class="foo icon-alignment-right size-medium" aria-label="bar" aria-controls="baz">
 
+	<span data-component="cl-a5-text" class="copy-1 button-label">Click me!</span>
+
+	<span data-component="cl-a2-icon" data-name="arrow-left" class="button-icon"/>
+</a>
+```
 ## Task list
 
 ### Atoms

@@ -73,8 +73,46 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "CL M1 Button",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"component\": \"cl-m1-button\",\n    \"parameters\": {\n        \"label\": \"Click me!\",\n        \"href\": \"https://github.com/mubanjs\",\n        \"disabled\": false,\n        \"target\": \"_self\",\n        \"className\": \"foo\",\n        \"icon\": \"arrow-left\",\n        \"size\": \"medium\",\n        \"id\": \"bar\",\n        \"title\": \"foo\",\n        \"ariaLabel\": \"bar\",\n        \"ariaControls\": \"baz\",\n        \"iconAlignment\": \"right\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{route}}",
+					"host": [
+						"{{host}}{{route}}"
+					]
+				}
+			},
+			"response": []
 		}
 	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "Z/dHOSqh1C",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "preview",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",

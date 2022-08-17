@@ -48,11 +48,7 @@ class RequestSubscriber implements EventSubscriberInterface
         if ($request->getMethod() !== Request::METHOD_POST && !str_ends_with($request->getUri(), $this->route ?? self::$defaultRoute)) return;
 
         if ($request->getMethod() === Request::METHOD_OPTIONS) {
-            $event->setResponse(new Response(null, Response::HTTP_OK, [
-                'Access-Control-Allow-Methods' => 'POST',
-                'Access-Control-Allow-Headers' => 'Content-Type, Authorization',
-                'Access-Control-Allow-Origin' => '*',
-            ]));
+            $event->setResponse(new Response(null, Response::HTTP_OK));
             return;
         }
 
@@ -72,11 +68,7 @@ class RequestSubscriber implements EventSubscriberInterface
         try {
             $event->setResponse(new Response($this->twig->render('@MediaMonksMuban/component/' . $component->getComponent() . '.html.twig', [
                 'component' => $component instanceof GenericComponent ? $component : $component::fromObject($params),
-            ]), Response::HTTP_OK,  [
-                'Access-Control-Allow-Methods' => 'POST',
-                'Access-Control-Allow-Headers' => 'Content-Type, Authorization',
-                'Access-Control-Allow-Origin' => '*',
-            ]));
+            ]), Response::HTTP_OK));
         } catch (LoaderError $e) {
             $event->setResponse(new Response(null, Response::HTTP_NOT_FOUND));
         }

@@ -19,13 +19,13 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Validator\ValidatorBuilder;
 use MediaMonks\Muban\EventSubscriber\RequestSubscriber;
 use MediaMonks\Muban\Component\Components;
-use MediaMonks\Muban\Component\Library;
+use App\Library as Library;
 
 // Create required instances or fetch them from a container
 $twig = new \Twig\Environment();
 $validatorBuilder = new ValidatorBuilder();
 
-// Load the components
+// If you have custom component classes that add some logic, register them, by default only a template is needed.
 $components = new Components([
     new Library\CLA1Heading(),
     new Library\CLA2Icon(),

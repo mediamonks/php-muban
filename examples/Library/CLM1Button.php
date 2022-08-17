@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MediaMonks\Muban\Component\Library;
+namespace App\Library;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -34,32 +34,32 @@ class CLM1Button extends AbstractComponent
 
     private CLA5Text $textComponent;
 
-    public static function fromArray(array $params): CLM1Button
+    public static function fromObject(object $params): CLM1Button
     {
         $component = new self();
 
         // Default properties
-        $component->className = $params['className'] ?? null;
-        $component->id = $params['id'] ?? null;
+        $component->className = $params->className ?? null;
+        $component->id = $params->id ?? null;
 
         // Custom properties
-        $component->label = $params['label'] ?? null;
-        $component->href = $params['href'] ?? null;
-        $component->disabled = $params['disabled'] ?? $component->disabled;
-        $component->target = $params['target'] ?? $component->target;
-        $component->icon = $params['icon'] ?? null;
-        $component->size = $params['size'] ?? $component->size;
-        $component->title = $params['title'] ?? null;
-        $component->ariaLabel = $params['ariaLabel'] ?? null;
-        $component->ariaControls = $params['ariaControls'] ?? null;
-        $component->iconAlignment = $params['iconAlignment'] ?? $component->iconAlignment;
+        $component->label = $params->label ?? null;
+        $component->href = $params->href ?? null;
+        $component->disabled = $params->disabled ?? $component->disabled;
+        $component->target = $params->target ?? $component->target;
+        $component->icon = $params->icon ?? null;
+        $component->size = $params->size ?? $component->size;
+        $component->title = $params->title ?? null;
+        $component->ariaLabel = $params->ariaLabel ?? null;
+        $component->ariaControls = $params->ariaControls ?? null;
+        $component->iconAlignment = $params->iconAlignment ?? $component->iconAlignment;
 
-        if ($component->icon) $component->iconComponent = CLA2Icon::fromArray([
+        if ($component->icon) $component->iconComponent = CLA2Icon::fromObject((object)[
             'name' => $component->icon,
             'className' => 'button-icon',
         ]);
 
-        if ($component->label) $component->textComponent = CLA5Text::fromArray([
+        if ($component->label) $component->textComponent = CLA5Text::fromObject((object)[
             'copy' => $component->label,
             'className' => 'button-label',
             'style' => $component->size === 'small' ? 'copy-3' : 'copy-1',

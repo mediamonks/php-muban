@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MediaMonks\Muban\Component\Library;
+namespace App\Library;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -14,18 +14,18 @@ class CLA5Text extends AbstractComponent
     private string $style = 'copy-1';
     private string $as = 'p';
 
-    public static function fromArray(array $params): CLA5Text
+    public static function fromObject(object $params): CLA5Text
     {
         $component = new self();
 
         // Default properties
-        $component->className = $params['className'] ?? null;
-        $component->id = $params['id'] ?? null;
+        $component->className = $params->className ?? null;
+        $component->id = $params->id ?? null;
 
         // Custom properties
-        $component->copy = $params['copy'];
-        $component->style = $params['style'] ?? $component->style;
-        $component->as = $params['as'] ?? $component->as;
+        $component->copy = $params->copy;
+        $component->style = $params->style ?? $component->style;
+        $component->as = $params->as ?? $component->as;
 
         return $component;
     }

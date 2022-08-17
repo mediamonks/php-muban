@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MediaMonks\Muban\Component\Library;
+namespace App\Library;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -18,19 +18,19 @@ class CLA1Heading extends AbstractComponent
 
     private ?string $style;
 
-    public static function fromArray(array $params): CLA1Heading
+    public static function fromObject(object $params): CLA1Heading
     {
         $component = new self();
 
         // Default properties
-        $component->className = $params['className'] ?? null;
-        $component->id = $params['id'] ?? null;
+        $component->className = $params->className ?? null;
+        $component->id = $params->id ?? null;
 
         // Custom properties
-        $component->as = $params['as'];
-        $component->copy = $params['copy'];
-        $component->style = $params['style'];
-        $component->ariaLabel = $params['ariaLabel'] ?? null;
+        $component->as = $params->as;
+        $component->copy = $params->copy;
+        $component->style = $params->style;
+        $component->ariaLabel = $params->ariaLabel ?? null;
 
         return $component;
     }

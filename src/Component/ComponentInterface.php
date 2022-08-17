@@ -10,7 +10,7 @@ interface ComponentInterface
 {
     function getComponent(): string;
 
-    public static function fromArray(array $params): ComponentInterface;
+    public static function fromObject(object $params): ComponentInterface;
 
     public function rules(): Collection;
 }

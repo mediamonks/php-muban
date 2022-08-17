@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MediaMonks\Muban\Component\Library;
+namespace App\Library;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -22,21 +22,21 @@ class CLA3Image extends AbstractComponent
 
     private ?string $objectFit;
 
-    public static function fromArray(array $params): CLA3Image
+    public static function fromObject(object $params): CLA3Image
     {
         $component = new self();
 
         // Default properties
-        $component->className = $params['className'] ?? null;
-        $component->id = $params['id'] ?? null;
+        $component->className = $params->className ?? null;
+        $component->id = $params->id ?? null;
 
         // Custom properties
-        $component->src = $params['src'];
-        $component->alt = $params['alt'];
-        $component->sources = $params['sources'];
-        $component->enableLazyLoading = $params['enableLazyLoading'];
-        $component->enableTransitionIn = $params['enableTransitionIn'];
-        $component->objectFit = $params['objectFit'];
+        $component->src = $params->src;
+        $component->alt = $params->alt;
+        $component->sources = $params->sources;
+        $component->enableLazyLoading = $params->enableLazyLoading;
+        $component->enableTransitionIn = $params->enableTransitionIn;
+        $component->objectFit = $params->objectFit;
 
         return $component;
     }

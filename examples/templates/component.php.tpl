@@ -6,13 +6,13 @@ namespace MediaMonks\Muban\Component\Library;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class CLA2Icon extends AbstractComponent
+class [classname] extends AbstractComponent
 {
-    protected string $component = 'cl-a2-icon';
+    protected string $component = '[componentname]';
 
-    private string $name;
+    [properties]
 
-    public static function fromArray(array $params): CLA2Icon
+    public static function fromArray(array $params): [classname]
     {
         $component = new self();
 
@@ -21,7 +21,7 @@ class CLA2Icon extends AbstractComponent
         $component->id = $params['id'] ?? null;
 
         // Custom properties
-        $component->name = $params['name'];
+        [property_initializers]
 
         return $component;
     }
@@ -29,12 +29,9 @@ class CLA2Icon extends AbstractComponent
     public function rules(): Assert\Collection
     {
         return $this->extendBaseRules([
-            'name' => new Assert\NotBlank(),
+
         ]);
     }
 
-    public function getName(): string
-    {
-        return $this->name;
-    }
+    [property_accessors]
 }

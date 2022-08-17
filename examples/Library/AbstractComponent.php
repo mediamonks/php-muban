@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MediaMonks\Muban\Component\Library;
+namespace App\Library;
 
 use MediaMonks\Muban\Component\ComponentInterface;
 use Symfony\Component\Validator\Constraints as Assert;

@@ -19,10 +19,9 @@ class Components
         $this->components[$component->getComponent()] = $component;
     }
 
-    public function get(string $name): ComponentInterface
+    public function get(string $name): ?ComponentInterface
     {
-        if (!array_key_exists($name, $this->components)) throw new ComponentDoesNotExistException(sprintf('Component %s was not found. Valid components are: %s', $name, implode(', ', $this->list())));
-        return $this->components[$name];
+        return $this->components[$name] ?? null;
     }
 
     private function list(): array
